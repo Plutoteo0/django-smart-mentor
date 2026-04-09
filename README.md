@@ -65,8 +65,8 @@ Then run the scrapper to generate the CSV file
 ## 📈 Project Status
 
 - [x] **Phase 1: Scraper & RAG Engine (CLI)**  
-      _Core logic for data extraction, vector embeddings, and local LLM integration._
-- [ ] **Phase 2: Backend API (FastAPI)**  
-      _Exposing the mentor's logic via a REST API for external applications._
+       _Core logic for data extraction, vector embeddings, and local LLM integration._
+- [x] **Phase 2: Backend API (FastAPI)**  
+       _Exposing the mentor's logic via a REST API for external applications._
 - [ ] **Phase 3: Mobile Frontend (React Native)**  
-      _A mobile interface for the AI mentor, built with Expo and React Native._
+       _A mobile interface for the AI mentor, built with Expo and React Native._
