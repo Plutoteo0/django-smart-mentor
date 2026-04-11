@@ -1,6 +1,7 @@
 import sys
 import os
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
 
@@ -8,6 +9,14 @@ from src.brain import Brain
 from .schemas import Question, AnswerResponse
 
 app = FastAPI(title="Django Mentor API", version="1.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 try:
     mentor = Brain()

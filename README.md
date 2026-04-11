@@ -1,72 +1,74 @@
-# 🚀 Django Smart Mentor (RAG System)
+# 🚀 Django Smart Mentor (Fullstack RAG System)
 
-An intelligent Django documentation assistant based on **RAG** (Retrieval-Augmented Generation) architecture. The system searches a local knowledge base and generates precise answers using the **Llama 3.2** model, effectively eliminating AI hallucinations.
+An intelligent AI assistant designed to help developers master Django. The system uses **Retrieval-Augmented Generation (RAG)** to provide accurate, context-aware answers based on official Django 6.0 documentation, effectively eliminating AI hallucinations.
 
-## 🌟 Key Features
+## 🌟 Project Overview
 
-- **Custom Scraper**: Bespoke script parsing official Django documentation into logical sections (Topic, Content, Code).
-- **Vector Search**: Utilizing Cosine Similarity and the `all-MiniLM-L6-v2` model for lightning-fast data retrieval.
-- **Local LLM**: Full privacy and zero API costs by leveraging **Ollama** and the **Llama 3.2:3b** model.
-- **GPU Acceleration**: Full CUDA support (optimized for NVIDIA RTX 4060).
+This is a fullstack application that scrapes, processes, and serves technical knowledge through a modern web interface. All AI computations are performed locally to ensure data privacy and zero API costs.
 
-## 🛠️ Tech Stack
+### Key Features:
 
-- **Language:** Python 3.10+
-- **AI Frameworks:** PyTorch, Sentence-Transformers
-- **LLM Engine:** Ollama (Llama 3.2:3b)
-- **Data Handling:** BeautifulSoup4, Pandas
+- **Phase 1: RAG Engine** – Custom scraper (BeautifulSoup4) and semantic search using `SentenceTransformers`.
+- **Phase 2: FastAPI Backend** – High-performance REST API with Pydantic schemas and CORS integration.
+- **Phase 3: React Frontend** – Modern UI built with Vite, featuring **Markdown rendering** and **Syntax Highlighting** for code blocks.
+- **Hardware Acceleration** – Heavy vector operations optimized for **NVIDIA CUDA (RTX 4060)**.
 
 ## 📁 Project Structure
 
 ```text
 django-smart-mentor/
-├── data/               # Generated knowledge bases (.csv)
-├── src/
-│   ├── scraper.py      # Data extraction from ://djangoproject.com
-│   ├── brain.py        # RAG Logic (Embeddings + LLM)
-│   └── main.py         # Future API (FastAPI)
-├── requirements.txt    # Project dependencies
-└── .gitignore          # Git exclusion rules
+├── src/                # Core AI Logic (Embeddings & RAG)
+├── backend/            # FastAPI Server & Schemas
+├── frontend/           # React (Vite) Web Application
+├── data/               # Knowledge base (Scraped CSV files)
+└── requirements.txt    # Python dependencies
 ```
 
 ## 🚀 Getting Started
 
-- **Clone the repository**:
+**1. Prerequisites**
 
-**bash**
+- Install Ollama and pull the model: ollama pull llama3.2:3b
 
-git clone https://github.com/Plutoteo0/django-smart-mentor
+- Ensure you have Node.js and Python 3.10+ installed.
 
-cd django-smart-mentor
+- (Optional) NVIDIA GPU with CUDA drivers for hardware acceleration.
 
-- **Install dependencies**
+**2. Backend Setup**
 
-pip install -r requirements.txt
+Clone the repository
 
-- **Prepare the Knowledge Base**
+       git clone https://github.com/Plutoteo0/django-smart-mentor
 
-## In src/scraper.py, add the sections you want to scrape:
+       cd django-smart-mentor
 
-- urls = [ "https://djangoproject.com",
-  "https://djangoproject.com",
+       # Install dependencies
+       pip install -r requirements.txt
 
-Add more links here to expand the Mentor's knowledge...]
+       # Run the FastAPI server
+       cd backend
+       python main.py
 
-Then run the scrapper to generate the CSV file
+**Backend runs at http://127.0.0.1:8000**
 
-### python src/scraper.py
+**3. Frontend Setup**
 
-## RUN THE MENTOR
+       Open a new terminal:
 
-**_Launch the main AI engine to start asking questions:_**
+       cd frontend
+       npm install
+       npm run dev
 
-**_python src/brain.py_**
+**Frontend runs at http://localhost:5173**
 
-## 📈 Project Status
+## 📈 Roadmap & Development
 
-- [x] **Phase 1: Scraper & RAG Engine (CLI)**  
-       _Core logic for data extraction, vector embeddings, and local LLM integration._
-- [x] **Phase 2: Backend API (FastAPI)**  
-       _Exposing the mentor's logic via a REST API for external applications._
-- [ ] **Phase 3: Mobile Frontend (React Native)**  
-       _A mobile interface for the AI mentor, built with Expo and React Native._
+- Scraper & RAG Core Logic
+- FastAPI REST API Integration
+- React Web Interface with Markdown Support
+- Mobile App (React Native - Planned)
+- Vector Database migration (ChromaDB/FAISS - Planned)
+
+# Developed by Plutoteo0
+
+## Student at WSB Merito University in Wrocław. Focused on Python, AI/ML, and Modern Web Systems.

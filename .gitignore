@@ -4,3 +4,10 @@ data/*.csv
 venv/
 .ipynb_checkpoints/
 .vscode/
+
+#Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
