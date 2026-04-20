@@ -4,9 +4,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from src.brain import Brain
-from .schemas import Question, AnswerResponse
+from schemas import Question, AnswerResponse
 
 app = FastAPI(title="Django Mentor API", version="1.0")
 
